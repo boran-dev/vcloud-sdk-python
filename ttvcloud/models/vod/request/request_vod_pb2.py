@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.bytedanceapi.model.vod.requestB\nVodRequestP\001Z8github.com/TTvcloud/vcloud-sdk-golang/models/vod/request\240\001\001\330\001\001\312\002\031Vcloud\\Models\\Vod\\Request\342\002\031Vcloud\\Models\\GPBMetadata',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1dvod/request/request_vod.proto\x12\x11Vcloud.Models.Vod\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1fvod/business/vod_workflow.proto\"\x98\x01\n\x15VodGetPlayInfoRequest\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06\x46ormat\x18\x02 \x01(\t\x12\r\n\x05\x43odec\x18\x03 \x01(\t\x12\x12\n\nDefinition\x18\x04 \x01(\t\x12\x10\n\x08\x46ileType\x18\x05 \x01(\t\x12\x10\n\x08LogoType\x18\x06 \x01(\t\x12\x0e\n\x06\x42\x61se64\x18\x07 \x01(\t\x12\x0b\n\x03Ssl\x18\x08 \x01(\t\"I\n\x1dVodGetOriginalPlayInfoRequest\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06\x42\x61se64\x18\x02 \x01(\t\x12\x0b\n\x03Ssl\x18\x03 \x01(\t\"e\n\x15VodUploadVideoRequest\x12\x11\n\tSpaceName\x18\x01 \x01(\t\x12\x10\n\x08\x46ilePath\x18\x02 \x01(\t\x12\x14\n\x0c\x43\x61llbackArgs\x18\x03 \x01(\t\x12\x11\n\tFunctions\x18\x04 \x01(\t\",\n\x1cGetRecommendedPostersRequest\x12\x0c\n\x04Vids\x18\x01 \x01(\t\">\n\x1fUpdateVideoPublishStatusRequest\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06Status\x18\x02 \x01(\t\"\xe2\x01\n\x16UpdateVideoInfoRequest\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12/\n\tPosterUri\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x05Title\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x44\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04Tags\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"$\n\x14GetVideoInfosRequest\x12\x0c\n\x04Vids\x18\x01 \x01(\t\"\x80\x01\n\x17VodStartWorkflowRequest\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x30\n\x05Input\x18\x02 \x01(\x0b\x32!.Vcloud.Models.Vod.WorkflowParams\x12\x10\n\x08Priority\x18\x03 \x01(\x05\x12\x14\n\x0c\x43\x61llbackArgs\x18\x04 \x01(\tB\xaa\x01\n\"com.bytedanceapi.model.vod.requestB\nVodRequestP\x01Z8github.com/TTvcloud/vcloud-sdk-golang/models/vod/request\xa0\x01\x01\xd8\x01\x01\xca\x02\x19Vcloud\\Models\\Vod\\Request\xe2\x02\x19Vcloud\\Models\\GPBMetadatab\x06proto3'
+  serialized_pb=b'\n\x1dvod/request/request_vod.proto\x12\x11Vcloud.Models.Vod\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1fvod/business/vod_workflow.proto\"\x98\x01\n\x15VodGetPlayInfoRequest\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06\x46ormat\x18\x02 \x01(\t\x12\r\n\x05\x43odec\x18\x03 \x01(\t\x12\x12\n\nDefinition\x18\x04 \x01(\t\x12\x10\n\x08\x46ileType\x18\x05 \x01(\t\x12\x10\n\x08LogoType\x18\x06 \x01(\t\x12\x0e\n\x06\x42\x61se64\x18\x07 \x01(\t\x12\x0b\n\x03Ssl\x18\x08 \x01(\t\"I\n\x1dVodGetOriginalPlayInfoRequest\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06\x42\x61se64\x18\x02 \x01(\t\x12\x0b\n\x03Ssl\x18\x03 \x01(\t\"e\n\x15VodUploadVideoRequest\x12\x11\n\tSpaceName\x18\x01 \x01(\t\x12\x10\n\x08\x46ilePath\x18\x02 \x01(\t\x12\x14\n\x0c\x43\x61llbackArgs\x18\x03 \x01(\t\x12\x11\n\tFunctions\x18\x04 \x01(\t\",\n\x1cGetRecommendedPostersRequest\x12\x0c\n\x04Vids\x18\x01 \x01(\t\">\n\x1fUpdateVideoPublishStatusRequest\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06Status\x18\x02 \x01(\t\"\xe2\x01\n\x16UpdateVideoInfoRequest\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12/\n\tPosterUri\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x05Title\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x31\n\x0b\x44\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12*\n\x04Tags\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"$\n\x14GetVideoInfosRequest\x12\x0c\n\x04Vids\x18\x01 \x01(\t\"\x94\x01\n\x17VodStartWorkflowRequest\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x12\n\nTemplateId\x18\x02 \x01(\t\x12\x30\n\x05Input\x18\x03 \x01(\x0b\x32!.Vcloud.Models.Vod.WorkflowParams\x12\x10\n\x08Priority\x18\x04 \x01(\x05\x12\x14\n\x0c\x43\x61llbackArgs\x18\x05 \x01(\tB\xaa\x01\n\"com.bytedanceapi.model.vod.requestB\nVodRequestP\x01Z8github.com/TTvcloud/vcloud-sdk-golang/models/vod/request\xa0\x01\x01\xd8\x01\x01\xca\x02\x19Vcloud\\Models\\Vod\\Request\xe2\x02\x19Vcloud\\Models\\GPBMetadatab\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,vod_dot_business_dot_vod__workflow__pb2.DESCRIPTOR,])
 
@@ -387,22 +387,29 @@ _VODSTARTWORKFLOWREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Input', full_name='Vcloud.Models.Vod.VodStartWorkflowRequest.Input', index=1,
-      number=2, type=11, cpp_type=10, label=1,
+      name='TemplateId', full_name='Vcloud.Models.Vod.VodStartWorkflowRequest.TemplateId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Input', full_name='Vcloud.Models.Vod.VodStartWorkflowRequest.Input', index=2,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Priority', full_name='Vcloud.Models.Vod.VodStartWorkflowRequest.Priority', index=2,
-      number=3, type=5, cpp_type=1, label=1,
+      name='Priority', full_name='Vcloud.Models.Vod.VodStartWorkflowRequest.Priority', index=3,
+      number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='CallbackArgs', full_name='Vcloud.Models.Vod.VodStartWorkflowRequest.CallbackArgs', index=3,
-      number=4, type=9, cpp_type=9, label=1,
+      name='CallbackArgs', full_name='Vcloud.Models.Vod.VodStartWorkflowRequest.CallbackArgs', index=4,
+      number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -420,7 +427,7 @@ _VODSTARTWORKFLOWREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=828,
-  serialized_end=956,
+  serialized_end=976,
 )
 
 _UPDATEVIDEOINFOREQUEST.fields_by_name['PosterUri'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE

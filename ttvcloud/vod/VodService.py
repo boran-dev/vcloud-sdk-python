@@ -126,7 +126,8 @@ class VodService(Service):
         apply_token = self.get_sign_url('ApplyUpload', params)
         commit_token = self.get_sign_url('CommitUpload', params)
 
-        ret = {'Version': 'v1', 'ApplyUploadToken': apply_token, 'CommitUploadToken': commit_token}
+        ret = {'Version': 'v1', 'ApplyUploadToken': apply_token,
+               'CommitUploadToken': commit_token}
         data = json.dumps(ret)
         if sys.version_info[0] == 3:
             return base64.b64encode(data.encode('utf-8')).decode('utf-8')
@@ -179,7 +180,8 @@ class VodService(Service):
         return json.loads(res)
 
     def query_upload_task_info(self, url_upload_query_request):
-        res = self.get('QueryUploadTaskInfo', url_upload_query_request.to_dict())
+        res = self.get('QueryUploadTaskInfo',
+                       url_upload_query_request.to_dict())
         if res == '':
             raise Exception("empty response")
         return json.loads(res)
@@ -189,7 +191,8 @@ class VodService(Service):
             raise Exception("no such file on file path")
         check_sum = hex(VodService.crc32(file_path))[2:]
 
-        apply_upload_request = {'SpaceName': space_name, 'UploadHosts': 1, 'FileType': file_type}
+        apply_upload_request = {'SpaceName': space_name,
+                                'UploadHosts': 1, 'FileType': file_type}
         resp = self.apply_upload(apply_upload_request)
         if 'Error' in resp['ResponseMetadata']:
             raise Exception(resp['ResponseMetadata']['Error']['Message'])
@@ -258,7 +261,8 @@ class VodService(Service):
         return oid, session_key, avg_speed
 
     def upload_video(self, space_name, file_path, file_type, funtions_list, callback_args=''):
-        oid, session_key, avg_speed = self.upload(space_name, file_path, file_type)
+        oid, session_key, avg_speed = self.upload(
+            space_name, file_path, file_type)
 
         commit_upload_request = {'SpaceName': space_name}
 
@@ -274,7 +278,8 @@ class VodService(Service):
         return resp['Result']
 
     def upload_video_tob(self, upload_video_reqeust):
-        oid, session_key, avg_speed = self.upload_tob(upload_video_reqeust.space_name, upload_video_reqeust.file_path)
+        oid, session_key, avg_speed = self.upload_tob(
+            upload_video_reqeust.space_name, upload_video_reqeust.file_path)
 
         form = dict()
         form['SessionKey'] = session_key
@@ -289,7 +294,8 @@ class VodService(Service):
         return resp
 
     def upload_poster(self, vid, space_name, file_path, file_type):
-        oid, session_key, avg_speed = self.upload(space_name, file_path, file_type)
+        oid, session_key, avg_speed = self.upload(
+            space_name, file_path, file_type)
 
         user_info = {'PosterUri': oid}
         body = {'SpaceName': space_name, 'Vid': vid, 'Info': user_info}
@@ -318,13 +324,23 @@ class VodService(Service):
             prev = crc32(eachLine, prev)
         return prev & 0xFFFFFFFF
 
-    # transcode
-    def start_workflow(self, params):
-        res = self.post('StartWorkflow', {}, params)
-        if res == '':
-            raise Exception("empty response")
-        res_json = json.loads(res)
-        return res_json
+    #
+        # StartWorkflow.
+        #
+    # @param request VodStartWorkflowRequest
+    # @return VodStartWorkflowResponse
+    # @raise Exception
+    def start_workflow(self, request: VodStartWorkflowRequest) -> VodStartWorkflowResponse:
+        try:
+            params = dict()
+            jsonData = MessageToJson(request, False, True)
+            params = json.loads(jsonData)
+            res = self.get("StartWorkflow", params)
+            if res == '':
+                raise Exception("InternalError")
+            return Parse(res, VodStartWorkflowResponse(), True)
+        except Exception:
+            raise
 
     # publish
     def set_video_publish_status(self, body):
@@ -375,7 +391,8 @@ class VodService(Service):
             else:
                 self.domain_cache[space_name] = self.fallback_domain_weights
 
-            t = threading.Thread(target=self.async_update_domain_weights, args=(space_name,))
+            t = threading.Thread(
+                target=self.async_update_domain_weights, args=(space_name,))
             t.setDaemon(True)
             t.start()
         self.lock.release()
@@ -399,8 +416,10 @@ class VodService(Service):
         if not (tpl == VOD_TPL_OBJ or tpl == VOD_TPL_NOOP):
             tpl = '{}:{}:{}'.format(option.tpl, option.width, option.height)
 
-        main_url = '{}://{}/{}~{}.{}'.format(proto, domain_info['MainDomain'], uri, tpl, format)
-        backup_url = '{}://{}/{}~{}.{}'.format(proto, domain_info['BackupDomain'], uri, tpl, format)
+        main_url = '{}://{}/{}~{}.{}'.format(proto,
+                                             domain_info['MainDomain'], uri, tpl, format)
+        backup_url = '{}://{}/{}~{}.{}'.format(proto,
+                                               domain_info['BackupDomain'], uri, tpl, format)
         return {'MainUrl': main_url, 'BackupUrl': backup_url}
 
     @staticmethod
@@ -427,8 +446,10 @@ class VodService(Service):
         resources = []
 
         self.add_resource_format(vid_list, resources, RESOURCE_VIDEO_FORMAT)
-        self.add_resource_format(stream_type_list, resources, RESOURCE_STREAM_TYPE_FORMAT)
-        self.add_resource_format(watermark_list, resources, RESOURCE_WATERMARK_FORMAT)
+        self.add_resource_format(
+            stream_type_list, resources, RESOURCE_STREAM_TYPE_FORMAT)
+        self.add_resource_format(
+            watermark_list, resources, RESOURCE_WATERMARK_FORMAT)
 
         statement = Statement.new_allow_statement(actions, resources)
         inline_policy = Policy([statement])

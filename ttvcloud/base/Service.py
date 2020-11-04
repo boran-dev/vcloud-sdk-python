@@ -21,8 +21,10 @@ class Service(object):
 
     def init(self):
         if 'VCLOUD_ACCESSKEY' in os.environ and 'VCLOUD_SECRETKEY' in os.environ:
-            self.service_info.credentials.set_ak(os.environ['VCLOUD_ACCESSKEY'])
-            self.service_info.credentials.set_sk(os.environ['VCLOUD_SECRETKEY'])
+            self.service_info.credentials.set_ak(
+                os.environ['VCLOUD_ACCESSKEY'])
+            self.service_info.credentials.set_sk(
+                os.environ['VCLOUD_SECRETKEY'])
         else:
             if os.environ.get('HOME', None) is None:
                 return
@@ -190,8 +192,10 @@ class Service(object):
         if policy is None:
             inner_token.policy_string = ''
         else:
-            inner_token.policy_string = json.dumps(policy, cls=ComplexEncoder, sort_keys=True).replace(' ', '')
-        inner_token.signed_secret_access_key = Util.aes_encrypt_cbc_with_base64(sts.secret_access_key, key)
+            inner_token.policy_string = json.dumps(
+                policy, cls=ComplexEncoder, sort_keys=True).replace(' ', '')
+        inner_token.signed_secret_access_key = Util.aes_encrypt_cbc_with_base64(
+            sts.secret_access_key, key)
         inner_token.expired_time = expire
 
         sign_str = '{}|{}|{}|{}|{}'.format(inner_token.lt_access_key_id, inner_token.access_key_id,
